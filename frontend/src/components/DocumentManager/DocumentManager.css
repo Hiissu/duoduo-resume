@@ -1,0 +1,72 @@
+.dmr {
+  width: 82%;
+  height: fit-content;
+  margin: 22px auto;
+  /* text-align: center; */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 9999;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.dmr-docs {
+  height: 663px;
+  overflow-y: auto;
+}
+
+.dmr-doc {
+  border-radius: 8px;
+  margin-bottom: 8px;
+  padding: 12px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.dmr-options label {
+  margin-bottom: 24px;
+}
+
+.dmr-doc button {
+  opacity: 0;
+}
+
+.dmr-doc:hover {
+  background-color: #2f3136;
+  /* border-top: 2px solid #afafaf;
+  border-bottom: 2px solid #afafaf; */
+}
+
+.dmr-doc:hover button {
+  opacity: 1;
+}
+
+.dmr-docs-none {
+  font-size: 1.25rem;
+  word-break: break-word;
+  text-align: center;
+  color: #b0b3b8;
+  font-weight: 700;
+  line-height: 1.2;
+  display: block;
+}
+
+.dmr-footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 720px;
+  max-width: 1280px;
+  margin: 12px auto;
+  padding: 12px 16px;
+  z-index: 9999;
+  display: flex;
+  position: fixed;
+  border-radius: 12px;
+  background-color: #2f3136;
+}

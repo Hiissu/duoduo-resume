@@ -1,0 +1,150 @@
+.sm-options {
+  padding: 0 18px;
+}
+
+.sm-options label {
+  margin-bottom: 24px;
+}
+
+.sm-wills-section {
+  width: 20%;
+  min-width: 20%;
+  max-width: 40%;
+  height: 100%;
+  padding: 12px 0 12px 12px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  color: whitesmoke;
+  background-color: #36393f;
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%);
+}
+
+.sm-details-section {
+  width: 64%;
+  min-width: 44%;
+  max-width: 64%;
+  height: 100%;
+  margin-right: 2px;
+  position: relative;
+  box-sizing: border-box;
+  border-radius: 12px;
+  margin-bottom: 24px;
+
+  background-color: #36393f;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+.moodal-closer .sm-close:hover {
+  color: whitesmoke;
+}
+
+
+.sm-content {
+  padding: 0 12px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 86%;
+}
+
+.sm-text2sentences-label,
+.sm-sentences-in-dict-label,
+.sm-sentences-in-unit-label {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sm-text2sentences-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.sm-text2sentences-input {
+  height: 158px;
+  max-height: 180px;
+}
+
+.sm-text2sentences-wrapper svg {
+  color: #ad5389;
+  /* background: linear-gradient(to right, #3c1053, #ad5389); */
+}
+
+.sm-text2sentences,
+.sm-sentences-in-dict {
+  height: fit-content;
+  /* max-height: 88%;
+  min-height: 12%; */
+}
+
+.sm-sentences-will-add,
+.sm-unknown-sentences-will-add,
+.sm-sentences-will-remove {
+  margin-top: 12px;
+}
+
+.sm-sentences-will-do {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 90%;
+  padding-right: 12px;
+}
+
+.sm-sentence {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  /* padding-right: 12px; */
+  height: max-content;
+  margin-right: 6px;
+  border-radius: 6px;
+}
+
+.sm-sentence:hover {
+  background-color: #2f3136;
+  /* background-color: #36393f; */
+}
+
+.sm-sentence-sentence {
+  margin-right: 12px;
+  /* overflow-wrap: break-word; */
+  word-break: break-all;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* .sm-sentence-sentence {
+  margin-right: 22px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  float: left;
+  width: 50%;
+} */
+
+.sm-sentence-num-times-display {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 12px;
+}
+
+/* .sm-sentence button {
+  visibility: hidden;
+}
+.sm-sentence:hover button {
+  visibility: visible;
+} */
+
+.sm-sentences-detected,
+.sm-unknown-sentences {
+  margin-top: 12px;
+}

@@ -1,0 +1,38 @@
+.resizer-x {
+  height: 100%;
+  width: 2px;
+  padding: 2px;
+  cursor: ew-resize;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.handle-YpRSjIvk {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 20px;
+}
+
+.handle-YpRSjIvk:hover {
+  cursor: col-resize;
+}
+
+
+.handle-YpRSjIvk .control-YpRSjIvk {
+  height: 76px;
+  width: 4px;
+  margin-left: 12px;
+  border-radius: 3px;
+  background-color: #9598a1;
+}
+
+.handle-YpRSjIvk:hover .control-YpRSjIvk {
+  background-color: #9598a1;
+}

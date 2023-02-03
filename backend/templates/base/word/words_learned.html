@@ -1,0 +1,49 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+
+<div style="margin: 2% 18% 2% 18%;">
+    <div style="display: -webkit-inline-box;">
+        <h5 style="margin-right: 10px;">{{course_learning.language_learning}} words learned </h5>
+        <span class="badge badge-pill badge-light">{{words.count}}</span>
+    </div>
+    <br><br>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <div>
+        {% if words %}
+        <table class="table table-hover">
+            <tr>
+                <th>Word</th>
+                <th>Last practiced</th>
+                <th>Listening</th>
+                <th>Speaking</th>
+                <th>Reading</th>
+                <th>Writing</th>
+            </tr>
+            {% for word in words %}
+            <tr>
+                <td>
+                    {{ word.word }}
+                </td>
+                <td>{{ word.last_practiced|timesince }} ago</td>
+                <td>{{ word.listening }}</td>
+                <td>{{ word.speaking }}</td>
+                <td>{{ word.reading }}</td>
+                <td>{{ word.writing }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div>
+            You have not learned any words.
+            <a class="link-secondary" href="{% url 'course-detail' course_learning.id %}">
+                View all words in this course.</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

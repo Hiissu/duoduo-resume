@@ -1,0 +1,14 @@
+.learn-section {
+  margin: 1% 18%;
+}
+.learning-section {
+  margin: 0 8%;
+}
+
+.learn-header {
+  display: flex;
+}
+
+.learn-practiced {
+  margin-right: 8%;
+}

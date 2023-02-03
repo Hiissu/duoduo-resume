@@ -1,0 +1,19 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<div style="margin: 2% 32% 4% 32%;">
+    <div>
+        <div id="title"></div>
+        <select id="languages" class="form-select form-select-lg mb-3"></select>
+    </div>
+
+    <h4>Courses</h4>
+    <div id="courses-info"></div>
+</div>
+<script>
+    var languageCode = `{{language_code}}`
+    var getLanguageURL = `{% url 'get-languages' %}`
+</script>
+<script src="{% static 'js/course/courses.js'%}"></script>
+
+{% endblock %}

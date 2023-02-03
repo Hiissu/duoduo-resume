@@ -1,0 +1,129 @@
+.navbar-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-collapse-item,
+.nav-collapse-course,
+.nav-collapse-option {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.nav-collapse-item:hover,
+.nav-collapse-course:hover,
+.nav-collapse-option:hover {
+  background-color: #36393f;
+}
+
+.nav-collapse-home {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-collapse-item {
+  width: 160px;
+}
+
+.nav-collapse-course {
+  width: 404px;
+  width: 320px;
+
+}
+
+.nav-course-text {
+  display: flex !important;
+  justify-content: center !important;
+
+}
+
+.nav-collapse-option {
+  width: 190px;
+}
+
+.nav-course {
+  height: 69px;
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.nav-flag {
+  width: 62px;
+  height: 42px;
+}
+
+.nav-collapse-course-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around
+}
+
+.nav-course-flag {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 26px;
+  margin-right: 18px;
+}
+
+.nav-collapse-course-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-course-flag-ll,
+.nav-flag-ll {
+  width: 100%;
+  cursor: pointer;
+}
+
+.nav-flag-ll {
+  height: 100%;
+}
+
+.nav-course-flag-ls {
+  position: absolute;
+  height: 26px;
+  width: 36px;
+  top: 26px;
+  left: 36px;
+}
+
+.nav-daystreak {
+  font-weight: 600;
+}
+
+
+.nav-daystreak,
+.nav-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.nav-logout {
+  display: flex;
+  height: 42px;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.nav-warn {
+  position: relative;
+  padding: 20px 16px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 6px;
+  margin-top: -1px;
+  color: #c9d1d9;
+  background-color: #0d1117;
+  border-color: #5d6f8a;
+}

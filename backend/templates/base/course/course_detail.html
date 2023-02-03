@@ -1,0 +1,222 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+    input[type=search]::-webkit-search-cancel-button {
+        -webkit-appearance: searchfield-cancel-button;
+    }
+</style>
+<div style="text-align: center; margin: 1% 18% 1% 18%;">
+    <h3>Course Resourses</h3><br>
+    <button id="words-btn" class="btn btn-outline-secondary">
+        Words
+        <span class="badge badge-pill badge-light">{{words.count}}</span>
+    </button>
+    <button id="phrases-btn" class="btn btn-outline-secondary">
+        Phrases
+        <span class="badge badge-pill badge-light">{{phrases.count}}</span>
+    </button>
+    <button id="sentences-btn" class="btn btn-outline-secondary">
+        Sentences
+        <span class="badge badge-pill badge-light">{{sentences.count}}</span>
+    </button>
+    <button id="lessons-btn" class="btn btn-secondary">
+        Lessons
+        <span class="badge badge-pill badge-light">{{lessons.count}}</span>
+    </button>
+</div>
+<hr>
+<button id="scroll-up-btn" class="btn btn-outline-secondary"
+    style="position: fixed; bottom: 32px; right: 32px; display: none;">
+    <!-- <i class="bi bi-chevron-compact-up"style="font-size: 2rem; color: cornflowerblue;"></i> -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-compact-up"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z">
+        </path>
+    </svg>
+</button>
+<!-- Word Section -->
+<div id="word-section" style="display: none; margin: 1% 12% 1% 12%;">
+    <a href="#" class="link-secondary"> Add new word? </a>
+    <br><br>
+    <form class="d-flex">
+        <input id="search-word" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Word</th>
+                    <th> Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for word in words %}
+                <tr>
+                    <td>
+                        {{ word.word }}
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down report</span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>There is no word in this course.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Phrase Section -->
+<div id="phrase-section" style="display: none; margin: 1% 12% 1% 12%;">
+    <a href="#" class="link-secondary"> Add new phrase? </a>
+    <br><br>
+    <form class="d-flex">
+        <input id="search-phrase" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Phrase</th>
+                    <th>Like</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for phrase in phrases %}
+                <tr>
+                    <td>
+                        {{ phrase.phrase }}
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down like</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down report</span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>There is no phrase in this course.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Sentence Section -->
+<div id="sentence-section" style="display: none; margin: 1% 12% 1% 12%;">
+    <a href="#" class="link-secondary"> Add new sentence? </a>
+    <br><br>
+    <form class="d-flex">
+        <input id="search-sentence" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Sentence</th>
+                    <th>Like</th>
+                    <th>Report</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sentence in sentences %}
+                <tr>
+                    <td>
+                        <a href="{% url 'sentence-detail' sentence.id %}" class="link-secondary">
+                            {{ sentence.sentence }}
+                        </a>
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down like</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down report</span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td>There is no sentence in this course.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Lesson Section -->
+<div id="lesson-section" style="display: block; margin: 1% 12% 1% 12%;">
+    <a href="{% url 'create-lesson' %}" class="link-secondary">Create new lesson?</a>
+    <br><br>
+    <form class="d-flex">
+        <input id="search-lesson" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            autofocus>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Lesson</th>
+                    <th>Topic</th>
+                    <th>Date Created</th>
+                    <th>Author</th>
+                    <th>Like</th>
+                    <th>Report</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for lesson in lessons %}
+                <tr>
+                    <td>
+                        <a href="{% url 'lesson-detail' lesson.id %}" class="link-secondary" title="View/Edit Lesson">
+                            {{lesson.name}}
+                        </a>
+                    </td>
+                    <td>
+                        {% for topic in lesson.topic.all %}
+                        #{{topic}}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <div>{{lesson.date_created|timesince}} ago</div>
+                    </td>
+                    <td>
+                        <div><a href="{% url 'profile' lesson.user.username %}"
+                                class="link-secondary">{{lesson.user.username}}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down like</span>
+                    </td>
+                    <td>
+                        <span class="badge badge-pill badge-light"> 0 up and down report</span>
+                    </td>
+                    <td><a href="{% url 'lesson-learn' lesson.id %}" class="link-success">Learn</a></td>
+
+                    {% if request.user == lesson.user %}
+                    <td><a href="{% url 'delete-lesson' lesson.id %}" class="link-danger">Detele</a></td>
+                    {% else %}
+                    <td></td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="{% static 'js/course/course_detail.js'%}"></script>
+{% endblock %}

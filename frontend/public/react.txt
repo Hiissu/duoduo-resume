@@ -1,0 +1,167 @@
+----> localStorage 
+localStorage.setItem('itemName', JSON.stringify(object))
+JSON.parse(localStorage.getItem('itemName'))
+-------------------------------------------------
+
+----> useState 
+- component will re-render after setState and initial state only use for first time
+usage ~ |const [state, setState] =  useState(defaultState) 
+                                    useState(defaultState ?? [])      default is undefine/null then use []
+                                    useState(() => { ... return;})    
+        |setState(newState)
+
+- use previous state 
+usage ~ |setState(prevState => prevState do something)
+
+- handleSomething
+usage ~ |const handleSomething = (prams) => {
+            setState(prev => [...prev, prams do something])
+        }
+        |onSomething={() => handleSomething(prams)}
+-------------------------------------------------
+
+
+
+----> useEffect 
+- callback always runs after component mounted/re-render
+- cleanup function always runs before callback ran / component unmounted ~| return () => {cleanup}
+
+--> useEffect(callback)
+- callback always runs after component mounted/re-render(a state changed || a DOM added)
+usage ~ |useEffect(() => {})
+
+--> useEffect(callback, [])
+- callback only runs once after component mounted/re-render
+
+--> useEffect(callback, [dependencies])
+- callback only runs if dependencies changed
+-------------------------------------------------
+
+
+useEffect 
+    re-update state -> update DOM -> re-render UI
+ -> call cleanup() if dependencies changed
+ -> call useEffect's callback
+----
+useLayoutEffect 
+    re-update state -> update DOM 
+ -> call cleanup() if dependencies changed
+ -> call useLayoutEffect's callback
+ -> re-render UI
+-------------------------------------------------
+
+
+
+----> useRef    .current
+
+- only save the initial value when mounted 
+- to save the previous value of state
+
+usage ~ |
+    const prevState = useRef()
+    useEffect(() => { prevState.current = state }, [state])
+- in DOM ref={?ref} like getElement.id
+-------------------------------------------------
+
+
+----> memo  
+- only re-render Component when props changed
+usage ~ | export default memo(Component)
+-------------------------------------------------
+
++
+
+----> useCallback   
+- same function as memo but use when use function as prop ? cause referent points to function change each times re-render 
+usage ~ | useCallback(() => {}, [])
+        | useCallback(() => {}, [state]) 
+-------------------------------------------------
+
+
+
+----> useMemo
+- use when dont want to repeat a function | when have a memo using unstable state (state changes -> memo is useless)
+- avoid to re-calculation a logic isn't nessary
+usage ~ | useMemo(() => {}, [])
+-------------------------------------------------
+https://www.joshwcomeau.com/react/usememo-and-usecallback/
+
+
+----> useReducer
+const initialState = () or { x:x, y:[] }
+const ?_ACTION = '? action'
+
+const SET_X = 'set_x'
+const ADD_X = 'add_x'
+const DELETE_X = 'delete_x'
+
+const setX = payload => { return { type: SET_X, payload } } // same with add - delete
+
+const reducer? = (state, action) => {
+    switch(action || action.type){
+        case ?_ACTION: return state do something;
+        case SET_X: 
+            return { ...state, x: action.payload }                  // add new x
+        case ADD_X:
+            return { ...state, y: [...state.y, action.payload] }    // add new to y array
+        case DELETE_X:
+            const newY = [...state.y] 
+            newY.splice(action.payload)                             // delete x from y array
+            return { ...state, y: newY }
+        default: return;
+    }
+}
+
+- in component
+const [state, dispatch] = useReducer(reducer, initialState)
+
+-- to set action like setState(newState) ~| dispatch(?_ACTION) 
+if action is ... then ... do whatever
+
+-- attach payload with an action ~| dispatch(?Action(payload))  
+onSomething={(e) => {dispatch(setX(e.target.value))}
+                     dispatch(addX(x))          
+                     dispatch(deleteX(x.id)
+                     dispatch({type: SET_X, payload: x.id})
+-------------------------------------------------
+
+
+
+----> useContext
+- we should create a separate function in Provider.js file
+import {useState, createContext} from 'react'
+
+const WhateverContext = createContext()
+function WhateverProvider({children}) {
+    const [state, setState] = useState()
+    const ?Dosomething = () => {}
+    const value = {state, ?Dosomething}
+    return (<WhateverContext.Provider value={value}>{children}</WhateverContext.Provider>)
+}
+export { WhateverContext, WhateverProvider}
+
+import then                     ~| import { WhateverProvider} from './WhateverContext' file
+wrap your children components   ~| <WhateverProvider> </WhateverProvider>
+
+usage ~ | import {useContext} from 'react'
+        | import {WhateverContext} from './WhateverContext'
+        | const context = useContext(WhateverContext) 
+        | context.state      context.?Dosomething 
+-------------------------------------------------
+
+
+
+----> Global State
+
+-------------------------------------------------
+
+
+----> useImpreativeHandle
+-------------------------------------------------
+
+
+
+----> useDebugValue
+-------------------------------------------------
+
+

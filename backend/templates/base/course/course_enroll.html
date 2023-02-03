@@ -1,0 +1,52 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<div style="margin: 2% 22% 4% 22%;">
+    <a href="{% url 'courses' %}" class="btn btn-outline-secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z">
+            </path>
+        </svg>
+        <span>All courses</span>
+    </a>
+    <hr><br>
+    <div style="display: flex;">
+        <div>
+            <h2>{{course}}</h2>
+            <span>{{num_learner}} active learners</span>
+        </div>
+        <div>
+            <button id="start-btn" class="btn btn-success" style="margin-left: 200%;">Start Course</button>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <h2>Course resources</h2>
+    <div class="form-group">
+        <button class="btn btn-outline-secondary" style="margin: 2%;">
+            <span class="badge badge-pill badge-light">{{num_word}}</span>
+            {{course.language_learning}} words
+        </button>
+        <button class="btn btn-outline-secondary" style="margin: 2%;">
+            <span class="badge badge-pill badge-light">{{num_phrase}}</span>
+            {{course.language_learning}} phrases
+        </button>
+        <button class="btn btn-outline-secondary" style="margin: 2%;">
+            <span class="badge badge-pill badge-light">{{num_sentence}}</span>
+            {{course.language_learning}} sentences
+        </button>
+        <button class="btn btn-outline-secondary" style="margin: 2%;">
+            <span class="badge badge-pill badge-light">{{num_lesson}}</span>
+            {{course.language_learning}} lessons
+        </button>
+
+    </div>
+</div>
+<script>
+    var enrollURL = `{% url 'course-enroll' course.id %}`
+</script>
+<script src="{% static 'js/course/course_detail.js'%}"></script>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{
+  "short_name": "DuoDuo",
+  "name": "Learn new language with your own Collections",
+  "icons": [
+    {
+      "src": "/public/moon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

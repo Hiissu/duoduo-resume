@@ -1,0 +1,99 @@
+.prm {
+  width: 460px;
+  /* height: 100%; */
+  height: fit-content;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  justify-content: center;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.prm-closer {
+  top: 0;
+  right: 0;
+  position: absolute;
+  padding: 0.75rem 1.25rem;
+}
+
+.prm-container {
+  position: relative;
+  box-sizing: border-box;
+  border-top-right-radius: 12px;
+  border-top-left-radius: 12px;
+  color: whitesmoke;
+  background-color: #36393f;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.prm-header {
+  display: flex;
+  justify-content: flex-start;
+  margin: 12px 22px;
+}
+
+.prm-header-title {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  flex: 0 0 auto;
+
+  /* display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  width: 80%;
+  border-bottom: 1px solid #dee2e6; */
+}
+
+.prm-content {
+  padding: 0 22px;
+  height: 69px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  /* position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  width: 80%;
+  border: 1px solid #888;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  */
+}
+
+.prm-content-message {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.prm-footer {
+  position: relative;
+  padding: 12px 16px;
+  background-color: #2f3136;
+  border-bottom-right-radius: 12px;
+  border-bottom-left-radius: 12px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.prm-footer button {
+  padding: 6px 46px;
+}

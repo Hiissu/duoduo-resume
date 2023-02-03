@@ -1,0 +1,102 @@
+.st-container {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 24px;
+    padding: 0 24px 24px;
+}
+
+.st-menu {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden scroll;
+    padding-right: 0px;
+    border-right: 1px solid rgb(219, 219, 219);
+}
+
+.st-menuer {
+    width: 218px;
+    padding: 60px 6px 60px 20px;
+}
+
+.st-setting {
+    color: #adbac7;
+}
+
+.st-item {
+    cursor: pointer;
+    padding: 6px 10px;
+    margin-bottom: 2px;
+    border-radius: 4px;
+}
+
+.st-logout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.st-account-section {
+    overflow: hidden scroll;
+    height: 100%;
+    padding-right: 0px;
+}
+
+.st-account-wrapper {
+    position: relative;
+    padding: 60px 40px 80px;
+    flex: 1 1 auto;
+    max-width: 740px;
+    min-width: 460px;
+    min-height: 100%;
+}
+
+.st-account,
+.st-password,
+.st-removal {
+    margin-top: 40px;
+}
+
+.st-avatar {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.st-authentication {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+}
+
+.st-close {
+    position: fixed;
+    margin-right: 21px;
+    width: 60px;
+    padding-top: 60px;
+    flex: 0 0 36px;
+}
+
+.st-close-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 0 0 36px;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+}
+
+.st-esc {
+    margin-top: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    text-align: center;
+}
+
+.st-bio {
+    height: 86px;
+}

@@ -1,0 +1,42 @@
+.courses-select {
+  margin: 0 28%;
+}
+
+.courses-container {
+  /* margin: 0 12%;
+  width: auto; */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.courses-course {
+  cursor: pointer;
+  text-align: center;
+  width: 456px;
+}
+
+.courses-learning {
+  color: green;
+}
+
+.courses-flag {
+  position: relative;
+  display: inline-block;
+  width: 96px;
+  height: 69px;
+}
+
+.courses-learning-flag {
+  width: 100%;
+}
+
+.courses-speaking-flag {
+  position: absolute;
+  height: 42px;
+  width: 64px;
+  top: 69%;
+  left: 69%;
+}

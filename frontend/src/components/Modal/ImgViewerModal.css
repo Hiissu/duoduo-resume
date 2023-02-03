@@ -1,0 +1,25 @@
+.img-wrapper {
+  flex-shrink: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  height: 720px;
+  max-height: 1080px;
+  width: 1280px;
+  max-width: 1920px;
+}
+
+.img-img {
+  display: block;
+  margin: auto;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  inset: 0px;
+  border: 0px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  object-position: center;
+  object-fit: cover;
+}

@@ -1,0 +1,101 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static '/css/lesson_learn.css' %}"> -->
+<style>
+    .word-btn {
+        margin: 9px;
+    }
+
+    .word-meaning,
+    .word-s,
+    .words-in-phrase,
+    .words-in-sentence,
+    .words-in-meaning {
+        cursor: default;
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+
+    .word-meaning .word-hint,
+    .word-s .word-meaning-hint,
+    .words-in-phrase .word-meanings-hint,
+    .words-in-sentence .word-meanings-hint,
+    .words-in-meaning .words-hint {
+        visibility: hidden;
+        width: auto;
+        background-color: #e5ecff;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        top: 200%;
+        left: -100%;
+        margin-left: 0px;
+    }
+
+    .word-meaning:hover .word-hint,
+    .word-s:hover .word-meaning-hint,
+    .words-in-phrase:hover .word-meanings-hint,
+    .words-in-sentence:hover .word-meanings-hint,
+    .words-in-meaning:hover .words-hint {
+        visibility: visible;
+    }
+
+    .word-hint,
+    .word-meaning-hint,
+    .word-meanings-hint,
+    .words-hint {
+        white-space: pre-line;
+    }
+</style>
+
+<div class="learn-form" style="display: block;">
+    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+        style="width:100%">
+        Progess bar
+    </div>
+    <!-- <div id="wrapper-t2p">
+
+        <p id="warning">Sorry, your web browser does not support the Speech Synthesis API.</p>
+        <div class="uiunit">
+            <label for="languageMenu">Language: </label><select id="languageMenu">
+                <option selected value="all">Show All</option>
+            </select>
+        </div>
+        <div class="uiunit">
+            <label for="speakerMenu">Voice: </label><select id="speakerMenu"></select>
+        </div>
+        <div class="uiunit">
+            <label for="rateFld">Speed: </label><input type="number" id="rateFld" min="0.5" max="2" step="0.1"
+                value="1">
+        </div>
+
+        <textarea id="txtFld">Hello world.</textarea>
+
+        <div style="text-align:left;">
+            <button type="button" id="speakBtn">Speak</button>
+        </div>
+        <div id="temp"></div>
+    </div> -->
+
+    <div id="challenge" style="display: none; text-align:center;"></div>
+
+    <div id="score-board" style="display: none; text-align:center;"></div>
+    <br>
+    <div id="footer" style="text-align:center;"></div>
+</div>
+
+<script> //check all abilities to espace js
+    var languageLearning = `{{language_learning}}`
+    var languageSpeaking = `{{language_speaking}}`
+    var wordsObj = JSON.parse(`{{word_dict|safe}}`)
+    var phrasesObj = JSON.parse(`{{phrase_dict|safe}}`)
+    var sentencesObj = JSON.parse(`{{sentence_dict|safe}}`)
+    var lessonCompleteURL = `{% url 'lesson-complete' %}`
+</script>
+<script type="text/javascript" src="{% static 'js/lesson/lesson_learn.js' %}"></script>
+{% endblock %}

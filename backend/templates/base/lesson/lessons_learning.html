@@ -1,0 +1,42 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<div style="margin: 2% 18% 2% 18%;">
+    <div style="display: -webkit-inline-box;">
+        <h5 style="margin-right: 10px;">{{course_learning.language_learning}} lessons learning </h5>
+        <span class="badge badge-pill badge-light">{{lessons_learning.count}}</span>
+    </div>
+    <br><br>
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <br>
+    <div>
+        {% if lessons_learning %}
+        <table class="table table-hover">
+            <tr>
+                <th>Lesson</th>
+                <th></th>
+            </tr>
+            {% for lesson in lessons_learning %}
+            <tr>
+                <td>
+                    <a class="link-secondary" href="{% url 'lesson-detail' lesson.id %}">{{ lesson.name }}</a>
+                </td>
+                <td>
+                    <a class="link-info" href="{% url 'lesson-learn' lesson.id %}">Start</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <div>
+            You have not learned any lessons.
+            <a class="link-secondary" href="{% url 'course-detail' course_learning.id %}?section=lesson">
+                View all lessons in this course.</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

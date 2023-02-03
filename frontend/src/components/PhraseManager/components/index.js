@@ -1,0 +1,9 @@
+export { default as PhrasesInDictionary } from "./PhrasesInDictionary";
+export { default as PhrasesInUnit } from "./PhrasesInUnit";
+export { default as PhrasesWillAdd } from "./PhrasesWillAdd";
+export { default as PhrasesWillRemove } from "./PhrasesWillRemove";
+export { default as SearchPhrasesWill } from "./SearchPhrasesWill";
+export { default as Text2Phrases } from "./Text2Phrases";
+export { default as UnknownPhrasesInUnit } from "./UnknownPhrasesInUnit";
+export { default as UnknownPhrasesWillAdd } from "./UnknownPhrasesWillAdd";
+export { default as UnknownPhrasesWillRemove } from "./UnknownPhrasesWillRemove";

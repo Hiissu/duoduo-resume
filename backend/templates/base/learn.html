@@ -1,0 +1,181 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content %}
+<style>
+    .create-lesson-overlay,
+    .remove-lesson-overlay,
+    .delete-lesson-overlay {
+        height: 100%;
+        width: 100%;
+        display: none;
+        position: fixed;
+        z-index: 0;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    .create-lesson-overlay-content,
+    .remove-lesson-overlay-content,
+    .delete-lesson-overlay-content {
+        position: relative;
+        top: 20%;
+        width: 32%;
+        height: 34%;
+        padding: 18px;
+        margin-top: 30px;
+        margin: auto;
+        color: whitesmoke;
+        background: linear-gradient(to top, #232526, #414345);
+        opacity: 1;
+        z-index: 1;
+    }
+</style>
+
+<div id="create-lesson-overlay" class="create-lesson-overlay">
+    <div id="create-lesson-overlay-content" class="create-lesson-overlay-content">
+        <form>
+            {% csrf_token %}
+            <div style="display: flex; justify-content: space-between;">
+                <h2>Create Lesson</h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                    class="cancel-create-lesson-btn bi bi-x-circle" viewBox="0 0 16 16" style="cursor: pointer;">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                </svg>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="lesson-name">Lesson name:</label>
+                <input type="text" class="form-control" id="lesson-name-input" maxlength="200" autocomplete="off">
+            </div>
+            <!-- <div class="form-group">
+                                <label for="lesson-topic">Topic:</label>
+                                <input type="text" class="form-control" id="lesson-topic-search">
+                            </div> -->
+            <div id="create-alert-div"></div>
+            <br>
+            <div class="form-row">
+                <div class="col cancel-create-lesson-btn btn" style="color: whitesmoke;"><u>Cancel</u></div>
+                <button id="create-lesson-btn" class="col btn btn-secondary" disabled>Create</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="remove-lesson-overlay" class="remove-lesson-overlay">
+    <div id="remove-lesson-overlay-content" class="remove-lesson-overlay-content">
+        <h2 id="title-remove-lesson">Remove Lesson</h2>
+        <br>
+        <div style="word-wrap: break-word;">
+            Are you sure you want to remove lesson
+            <strong id="remove-lesson-name"></strong>
+            from your learning lessons? This cannot be undone.
+        </div>
+        <hr>
+        <div class="float-right" id="remove-confirm-section"></div>
+    </div>
+</div>
+
+<div id="delete-lesson-overlay" class="delete-lesson-overlay">
+    <div id="delete-lesson-overlay-content" class="delete-lesson-overlay-content">
+        <h2 id="title-delete-lesson">Delete Lesson</h2>
+        <br>
+        <div style="word-wrap: break-word;">
+            Are you sure you want to permanently delete lesson
+            <strong id="delete-lesson-name"></strong>
+            ? This cannot be undone.
+        </div>
+        <hr>
+        <div class="float-right" id="delete-confirm-section"></div>
+    </div>
+</div>
+
+<button id="scroll-up-btn" class="btn btn-outline-secondary"
+    style="position: fixed; bottom: 32px; right: 32px; display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-chevron-compact-up"
+        viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+            d="M7.776 5.553a.5.5 0 0 1 .448 0l6 3a.5.5 0 1 1-.448.894L8 6.56 2.224 9.447a.5.5 0 1 1-.448-.894l6-3z">
+        </path>
+    </svg>
+</button>
+
+<div style="margin: 1% 18% 2% 18%;">
+    <h2>Today</h2>
+    <div style="display: flex;">
+        <div>Words practiced
+            <span class="badge badge-pill badge-light">{{words_learned.count}}</span>
+        </div><br>
+        <div style="margin-left: 8%;">Phrases practiced
+            <span class="badge badge-pill badge-light">{{phrases_learned.count}}</span>
+        </div>
+    </div>
+    <br>
+    <a class="btn btn-outline-secondary" href="{% url 'course-detail' course_learning.id %}">
+        View all lessons in this course</a>
+    <br><br>
+    <div>{{course_learning.language_learning}} lessons learning
+        <span id="lessons-learning-counter" class="badge badge-pill badge-light">{{lessons_learning.count}}</span>
+        <button id="create-lesson-show-btn" style="margin-left: 2%;" class="btn btn-outline-secondary">
+            Create new lesson?
+        </button>
+    </div>
+
+    <br>
+    <div class="table-responsive">
+        <table class="table table-hover" id="lesson-table">
+            <thead>
+                <tr>
+                    <th>Lesson</th>
+                    <th>Topic</th>
+                    <th>Date Created</th>
+                    <th>Author</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="lessons-tbody">
+                {% for lesson in lessons_learning %}
+                <tr id="lesson-tr-{{lesson.id}}">
+                    <td>
+                        <a href="{% url 'lesson-detail' lesson.id %}" class="link-secondary"
+                            title="View/Edit Lesson">{{lesson.name}}</a>
+                    </td>
+                    <td>
+                        {% for topic in lesson.topic.all %}
+                        #{{topic}}
+                        {% endfor %}
+                    </td>
+                    <td>{{lesson.date_created|timesince}}</td>
+                    <td>
+                        <a href="{% url 'profile' lesson.user.username %}"
+                            class="link-secondary">{{lesson.user.username}}</a>
+                    </td>
+                    <td><a href="{% url 'lesson-learn' lesson.id %}" class="link-success">Learn</a></td>
+                    <td>
+                        <div style="cursor:pointer" class="text-warning"
+                            onclick="removeFunc(`{{lesson.id}}`, `{{lesson.name}}`)">Remove</div>
+                    </td>
+                    {% if request.user == lesson.user %}
+                    <td>
+                        <div style="cursor:pointer" class="text-danger"
+                            onclick="deleteFunc(`{{lesson.id}}`, `{{lesson.name}}`)">Delete
+                        </div>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    createLessonURL = `{% url 'create-lesson' %}`
+</script>
+<script src="{% static 'js/learn.js'%}"></script>
+
+{% endblock %}

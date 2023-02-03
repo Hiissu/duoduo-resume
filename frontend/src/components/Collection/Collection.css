@@ -1,0 +1,233 @@
+/* Collection Search Bar */
+.collection-search {
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.collection-search select {
+    width: 180px;
+}
+
+.collection-search input {
+    width: auto;
+    flex-grow: 2;
+    margin: 0;
+    max-width: 720px;
+    position: relative;
+    color: #dcddde;
+    background-color: #4f545c;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8.5px;
+}
+
+.dropw-title {
+    font-weight: 500;
+    text-transform: capitalize;
+}
+
+.dropw-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 46px;
+    width: 142px;
+    border-radius: 6px;
+    border: 0.1rem solid var(#494d59);
+}
+
+.dropw-button:focus {
+    border: 0.1rem solid #567497;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+/*  Collections Learning - Collections Result */
+.none-results {
+    align-items: center;
+    text-align: center;
+}
+
+.collections-container {
+    margin: 0 8%;
+    /*   margin: 0; */
+    position: relative;
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: auto;
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+}
+
+
+/* Collection */
+
+.collection-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    /* height: 369px; */
+    /* border: 1px solid rgba(0, 0, 0, .1); */
+    border-radius: 10px;
+    margin-top: 22px;
+    margin-bottom: 42px;
+    justify-content: center;
+}
+
+.collection-card:hover img {
+    transform: scale(1.02);
+}
+
+.collection-card button,
+.collection-card .collection-learning {
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.collection-card:hover button,
+.collection-card:hover .collection-learning {
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+.collection-banner {
+    flex-shrink: 0;
+    margin: auto;
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    height: 280px;
+    /* width: 1280px; */
+    /* height: 420px; */
+}
+
+.collection-banner-img {
+    display: block;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border: 0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    object-position: center;
+    object-fit: cover;
+    transition: transform 0.4s;
+    /* popup effect */
+}
+
+.collection-detail {
+    width: 86%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.collection-detail a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.collection-detail a:hover {
+    text-decoration: underline;
+}
+
+.collection-detail,
+.collection-footer {
+    margin: 0 6%;
+}
+
+.collection-footer {
+    width: 86%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.collection-footer button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.collection-wrapper {
+    display: flex !important;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.collection-wrapper .collection-diw {
+    margin-right: 36px;
+}
+
+.collection-diw {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.collection-diw .collection-label {
+    margin-right: 12px;
+    color: #ffffff80;
+}
+
+
+.collection-topics {
+    /* padding: 0 69px; */
+    display: flex;
+    flex-flow: wrap;
+    align-content: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.collection-topic {
+    display: flex;
+    border-radius: 12px;
+    padding: 6px;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    background-color: #0000002b;
+    border: 1px solid #0000002b;
+    color: whitesmoke;
+    /* vertical-align: middle;
+    padding-right: 2px; 
+    height: 28px; 
+    word-break: break-all;
+    cursor: pointer; */
+}
+
+.collection-topic-name {
+    max-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 4px;
+}

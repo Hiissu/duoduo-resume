@@ -1,0 +1,13 @@
+export { default as catPeekingGif } from "./cat-peeking.gif";
+export { default as catPeekGif } from "./cat-peek.gif";
+export { default as catFingerGif } from "./cat-finger.gif";
+export { default as catFunnyGif } from "./cat-funny.gif";
+export { default as catScaredGif } from "./cat-scared.gif";
+export { default as catTheCatGif } from "./cat-the-cat.gif";
+export { default as catTypingGif } from "./cat-typing.gif";
+export { default as catGif } from "./cat.gif";
+export { default as catPawGif } from "./cats-paw.gif";
+export { default as catDoorHideGif } from "./door-hide.gif";
+export { default as catHappyPleasedGif } from "./happy-pleased.gif";
+export { default as catPeepingPeepGif } from "./peeping-peep.gif";
+export { default as bunnyWhatGif } from "./bunnies-what.gif";

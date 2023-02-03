@@ -1,0 +1,106 @@
+:root {
+  --gray-0: #fafbfc;
+  --gray-2: #e1e4e8;
+  --gray-4: #959da5;
+  --gray-6: #586069;
+  --gray-8: #2f363d;
+  --gray-10: #1b1f23;
+}
+
+.dm {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  z-index: 9999;
+  color: whitesmoke;
+  background-color: #36393f;
+  animation-name: animatetop;
+  animation-duration: 0.3s;
+}
+
+.dm-editor {
+  width: 1080px;
+  margin: 20px auto;
+  /* min-width: 69%; */
+  /* padding: 0 12px; */
+}
+
+.dm-footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 720px;
+  max-width: 1280px;
+  margin: 12px auto;
+  padding: 12px 16px;
+  z-index: 9999;
+  display: flex;
+  position: fixed;
+  border-radius: 12px;
+  background-color: #2f3136;
+}
+
+
+.menu .for-header-link {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: space-evenly; */
+}
+
+.menu button {
+  margin: 6px 6px 0;
+}
+
+.editor textarea {
+  /* background-color: var(--gray-10); */
+  /* color: var(--gray-0); */
+  height: 560px;
+  max-height: 560px;
+  width: 100%;
+}
+
+
+.editor-shell {
+  border-radius: 2px;
+  /* max-width: 1080px; */
+  color: #000;
+  position: relative;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+
+.editor-container {
+  color: #000;
+  /* height: 721px; */
+  min-width: 600px;
+  margin-bottom: 20px;
+  border-radius: 2px;
+  line-height: 20px;
+  font-weight: 400;
+  text-align: left;
+  border-radius: 12px;
+  position: relative;
+}
+
+
+.editor-input {
+  overflow-y: auto;
+  height: 626px;
+  /* height: 598px; */
+  min-height: 160px;
+  resize: none;
+  font-size: 15px;
+  caret-color: rgb(5, 5, 5);
+  position: relative;
+  tab-size: 1;
+  outline: 0;
+  padding: 15px 10px;
+  caret-color: #444;
+}

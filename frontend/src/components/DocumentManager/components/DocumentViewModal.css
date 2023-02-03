@@ -1,0 +1,62 @@
+.dvm-backdrop {
+  overflow-y: hidden;
+  pointer-events: all;
+  opacity: 0.85;
+  /* background: #000000; */
+  background: #00000069;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  z-index: 2022;
+}
+
+.dvm {
+  width: 1140px;
+  height: 735px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px;
+  border-radius: 12px;
+  margin: auto;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: whitesmoke;
+  background-color: #36393f;
+  z-index: 2022;
+}
+
+
+.dvm-close-wrapper {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  color: #72767d;
+}
+
+.dvm-esc {
+  font-size: small;
+  cursor: default;
+}
+
+.dvm-close-wrapper .dvm-close:hover {
+  color: whitesmoke;
+}
+
+.dvm-name-wrapper {
+  overflow-y: auto;
+  max-height: 34px;
+}
