@@ -1,9 +1,6 @@
 export const HOST_URL = "http://localhost:8000";
 export const AVATAR_URL = "http://localhost:8000/images/";
 
-export const DISCORD_URL = "https://discord.gg/kp4xMy54zb";
-export const DISCORD_IDEAS_URL = "https://discord.gg/gSHzjX9FuZ";
-
 // Auth URLS
 export const REGISTER_URL = `/register/`;
 export const LOGIN_URL = `/login/`;
